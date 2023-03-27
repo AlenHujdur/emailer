@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <title>Contact Request</title>
+  </head>
+  <body>
+    <p>Name: <%= @contact.name %></p>
+    <p>Email: <%= @contact.email %></p>
+    <p>Message:</p>
+    <div><%= @contact.message %> </div>
+    <% if @contact.document.attached? %>
+      <p>Attachment:</p>
+      <div>
+        <%= link_to @contact.document.blob.filename.to_s, url_for(@contact.document) %>
+      </div>
+    <% end %>
+  </body>
+</html>
